@@ -5596,11 +5596,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/main/Links/Links.csproj",
+      "projectUniqueName": "/Users/main/Documents/GitHub/Links/Links.csproj",
       "projectName": "Links",
-      "projectPath": "/Users/main/Links/Links.csproj",
+      "projectPath": "/Users/main/Documents/GitHub/Links/Links.csproj",
       "packagesPath": "/Users/main/.nuget/packages/",
-      "outputPath": "/Users/main/Links/obj/",
+      "outputPath": "/Users/main/Documents/GitHub/Links/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/main/.nuget/NuGet/NuGet.Config"

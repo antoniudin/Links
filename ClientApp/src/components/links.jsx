@@ -66,16 +66,16 @@ class Links extends React.Component {
         const {showAddField, links} = this.state;
         return <div className="main">
             <div className="rightPanel">
-            {!showAddField && <button className="btn btn-sm btn-warning m-1 showButton" onClick={this.handleShowLinkForm}>+</button>}
+            {!showAddField && <button className="btn btn-sm btn-warning showButton" onClick={this.handleShowLinkForm}>+</button>}
             
-            {showAddField && <div className="linkFormPanel m-1"><LinkForm 
+            {showAddField && <div className="linkFormPanel"><LinkForm 
             links={links} 
             addLink={this.handleAddLink}
             closeForm = {this.handleHideLinkForm}
             /></div>}
             
             <form onSubmit={this.handleSubmit}>
-                <div className="form-group m-1">
+                <div className="">
                     <label htmlFor="input1">Search:</label>
                     <input 
                     // value={link.name}
@@ -87,8 +87,8 @@ class Links extends React.Component {
                 </div>
             </form>
 
-            <p className="m-2">Total amount of links: {links.length}</p>
-            {links.map(link=> 
+            <p className="m-2">Total number of links: {links.length}</p>
+            {links.map(link=>
                 <Link key={link.id}
                 tags = {link.tags}
                 link={link}

@@ -45,23 +45,27 @@ code {
 }
 
 .menuItem {
-  margin: 5px;
+  padding:5px;
   color: white;
 }
 
+.menuUser {
+  top:0;
+  right:1%;
+  position: absolute;
+  margin: 5px;
+  color: white;
+  float:right;
+}
+
 .menuItem:hover {
+  padding:5px;
   background-color:orange;
   color:black;
 }
 
-.userMenuItem {
-  margin: 5px;
-  color: white;
-}
-
 .linkContainer {
   margin: 4px;
-  /* border: 2px solid red; */
   border-radius: 4px;
   padding: 8px;
   margin-bottom: 20px;

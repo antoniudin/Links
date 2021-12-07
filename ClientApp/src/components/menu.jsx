@@ -18,14 +18,15 @@ class Menu extends React.Component {
             <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/page/links" className="mItem">Dashboard</Link>
         </div>)}
         
-        {userLogin && <p className="userMenuItem">{"User: " + user}</p>}
-
         {userLogin && (<div className="menuItem">
             <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/page/logout" className="mItem">Logout</Link>
         </div>)}
 
+        <div className="menuItem">
         <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/page/reg" className="menuItem">Register</Link>
+        </div>
 
+        {userLogin && <p className="menuUser">{"User: " + user}</p>}
     </div>;
     }
 }

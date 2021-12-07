@@ -5,6 +5,7 @@ import Links from './components/links';
 import Menu from './components/menu';
 import Login from './components/login';
 import Logout from './components/Logout';
+import Register from './components/register';
 import './custom.css'
 
 export default class App extends Component {
@@ -39,9 +40,11 @@ export default class App extends Component {
             if(!userLogin) return <Redirect to="/page/login"/>
             return <Logout userLogin={userLogin}/>}} />
 
+            <Route path="/page/reg" render={props => <Register userLogin={this.userLogin}/>} />
+
             <Route path="/" render={props => <Login userLogin={this.userLogin}/>} />
 
-            <Route path="/page/reg" render={props => <Register/>} />
+            
           </Switch>
        </div>
       </React.Fragment>
