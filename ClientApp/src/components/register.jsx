@@ -1,31 +1,22 @@
 import React from "react";
+import Form from './form';
 import Joi from 'joi-browser';
 
-class Register extends React.Component {
+class Register extends Form {
   state = {
     user: {user:'', email:'', password:''},
     errors: {}
   }
   
-  handleSubmit = () => {
-    e.preventDefault()
-
-    const errors = this.validateProperty(); 
-    this.setState({errors: errors || {} });
-    if (errors) return;
-
+  schema = {
+    username:Joi.string().required().label("Username"),
+    email:Joi.string().required().email().label("Email"),
+    password:Joi.string().required().label("Password")
   }
 
-  handleChange = ({currentTarget:input}) => {
-    const errors = {...this.state.errors}
-    const errorMessage = this.validateProperty(input)
-    if (errorMessage) errors[input.name] = errorMessage
-    else delete errors[input.name]
+  doSubmit = () => {
 
-    const user = {...this.state.user}
-    user[input.name] = input.value;
-    this.setState({user,errors});
-}
+  }
 
   render() { 
     const {errors} = this.state;
