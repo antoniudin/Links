@@ -1,70 +1,35 @@
-// import { CognitoUserPool } from 'amazon-cognito-identity-js';
+// import { CognitodataPool } from 'amazon-cognito-identity-js';
 import axios from 'axios';
 import React, { Component } from 'react';
 import Joi from 'joi-browser';
+import Form from './form';
 
-const userServer = "https://todolist431.azurewebsites.net/api/user/"
+// const dataServer = "https://todolist431.azurewebsites.net/api/user/"
 
-class Login extends React.Component {
+class Login extends Form {
 
     state = {
-      user: {email:'', password:''},
+      data: {email:'', password:''},
       errors: {}
     }
 
     schema = {
-      email:Joi.string().required().label("Email"),
+      email:Joi.string().required().email().label("Email"),
       password:Joi.string().required().label("Password")
     }
 
-    handleSubmit = e => {
-      e.preventDefault();
-      const errors = this.validate();
-      this.setState({errors: errors || {} });
-      if (errors) return;
+    doSubmit = () => {
+        const currentdata = {
+          login: this.state.data.email,
+          password: this.state.data.password
+        }      
+      localStorage.setItem('dataLogin', true)
+      localStorage.setItem('data', currentdata.login)
+      window.location="/page/links"
     }
-
-    validate = () => {
-      const options = {abortEarly: false}
-      const {error} = Joi.validate(this.state.user, this.schema, options)
-      if (!error) return null
-      const errors = {};
-      for (let item of error.details)
-      errors[item.path[0]] = item.message
-      return errors
-    }
-
-    validateProperty = ({name, value}) => {
-      const obj = { [name] : value }
-      const schema = { [name] : this.schema[name] }
-      const {error} = Joi.validate(obj, schema)
-      return error ? error.details[0].message : null
-    }
-
-    handleLogin = () => {
-      //   const currentUser = {
-      //     login: this.state.user.email,
-      //     password: this.state.user.password
-      //   }      
-          
-      // localStorage.setItem('userLogin', true)
-      // localStorage.setItem('user', currentUser.login)
-      // window.location="/page/links"
-    }
-
-    handleChange = ({currentTarget:input}) => {
-      const errors = {...this.state.errors}
-      const errorMessage = this.validateProperty(input)
-      if (errorMessage) errors[input.name] = errorMessage
-      else delete errors[input.name]
-
-      const user = {...this.state.user}
-      user[input.name] = input.value;
-      this.setState({user,errors});
-  }
 
     render() { 
-        const {errors} = this.state;
+        const {data, errors} = this.state;
         return <div className="m-3">
           <form onSubmit={this.handleSubmit}> 
             <div className="form-group">

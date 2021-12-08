@@ -1,3 +1,13 @@
+.linkContainer a {
+  color:#FFFFFF;
+  text-decoration: none;
+} 
+
+.linkContainer a:hover {
+  color:lightslategray;
+  text-decoration: none;
+} 
+
 code {
   color: #E01A76;
 }
@@ -72,6 +82,16 @@ code {
   background-color:#a0a0a0;
 }
 
+.linkContainerHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.linkContainerItem {
+  margin-right: 3px;
+}
+
 .loginContainer {
   display: flex;
   flex-direction: row;
@@ -95,7 +115,11 @@ code {
 .tagContainer {
   display:flex;
   flex-direction:row;
+}
 
+.tagForm {
+  display:flex;
+  flex-direction:row;
 }
 
 
