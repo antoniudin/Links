@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import Joi from 'joi-browser';
 import Form from './form';
+import Input from './input';
 
 // const dataServer = "https://todolist431.azurewebsites.net/api/user/"
 
@@ -32,17 +33,10 @@ class Login extends Form {
         const {data, errors} = this.state;
         return <div className="m-3">
           <form onSubmit={this.handleSubmit}> 
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input name = "email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onChange={this.handleChange}/>
-              {errors.email && <div className="alert alert-danger alert-sm">{errors.email}</div> }
-              <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input name = "password" type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" onChange={this.handleChange}/>
-              {errors.password && <div className="alert alert-danger alert-sm">{errors.password}</div> }
-            </div>
+            <Input name = "email" type="email" value={data.email} label="Email" errors = {errors} onChange = {this.handleChange} />
+            {errors.email && <div className="alert alert-danger alert-sm">{errors.email}</div> }
+            <Input name = "password" type="password" value={data.password} label="Password" errors = {errors} onChange = {this.handleChange} />
+            {errors.password && <div className="alert alert-danger alert-sm">{errors.password}</div> }
             <button disabled = {this.validate()} type="submit" className="btn btn-primary btn-sm">Login</button>
           </form>
         </div>

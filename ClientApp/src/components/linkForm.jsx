@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Input from './input';
+import Joi from 'joi-browser';
 
 const apiEndpoint = "https://localhost:5001/api/links/";
 class LinkForm extends React.Component {
     
     state = {
-        link:{
-            name: '',
-            shorName:'',
-        },
-        errors: {
-        }
+        link:{name: '', shorName:''},
+        errors: {}
     }
+
+    schema = {
+        link:Joi.string().required().email().label("Email"),
+      }
     
     validate = () => {
         const errors = {};
@@ -29,7 +31,11 @@ class LinkForm extends React.Component {
         return Object.keys(errors).length===0 ? null: errors;
     }
 
-   
+    doSubmit = () => {
+        const newLink = {...this.state.link}
+        newLink.shortName = (Math.random() + 1).toString(36).substring(7)
+        this.props.addLink(newLink);
+    }
 
     handleSubmit = e => {
         e.preventDefault();
@@ -37,34 +43,22 @@ class LinkForm extends React.Component {
         const errors = this.validate(); 
         this.setState({errors: errors || {} });
         if (errors) return;
-        
-        const newLink = {...this.state.link}
-        newLink.shortName = (Math.random() + 1).toString(36).substring(7)
-        this.props.addLink(newLink);
+        this.doSubmit();
     };
 
     handleChange = ({currentTarget:input}) => {
         const link = {...this.state.link}
         link[input.name] = input.value;
         this.setState({link});
+        console.log(this.state.link)
     }
 
     render() {         
         const {link,errors} =this.state;
         return <div>
             <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="input1">Link:</label>
-                    <input 
-                    value={link.name}
-                    onChange={this.handleChange}
-                    id="input1" 
-                    name="name"
-                    error={errors.link}
-                    className="form-control"/>
-                </div>
+                <Input name = "name" value={link.name} label="Link" errors = {errors} onChange = {this.handleChange} />
                 {errors.link && <div className="alert alert-danger">{errors.link}</div> }
-
                 <button type="submit" className="btn btn-primary btn-sm m-1">Submit</button>
                 <button className="btn btn-secondary btn-sm m-1" onClick={this.props.closeForm}>Cancel</button>
             </form>
