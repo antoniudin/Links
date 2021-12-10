@@ -33,7 +33,7 @@ export default class App extends Component {
        <div className="content">
         <Switch>        
             <Route path="/page/links" render = {props=> {
-            if(!userLogin) return <Redirect to="/page/login"/>
+            // if(!userLogin) return <Redirect to="/page/login"/>
             return <Links />}} />
 
             <Route path="/page/logout" render = {props=> {
