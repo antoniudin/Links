@@ -14,18 +14,17 @@ class Links extends React.Component {
             shortName:''
           },
         showAddField:false,
-        links:[],
-        tags:[]
+        links:[]
     }
 
     handleSubmit = e => {
         e.preventDefault();
     }
 
-    handleAddTag = (tag, linkId) => {
-        console.log("Delete tag: " + tag + "Link id: " + linkId)
-        const tags = this.state.tags.filter(t=> t.linkId ==linkId)
-        console.log(this.state.tags)
+    handleAddTag = async (newTag, linkId) => {
+        const promise = await axios.post(apiEndpoint + linkId + "/" + newTag.name)
+        const {data:links} = await axios.get(apiEndpoint);
+        this.setState({links})
     }
     
     handleAddLink = async (newLink) => {
@@ -50,7 +49,6 @@ class Links extends React.Component {
     }
 
     handleTagDelete = async (id) => {
-        console.log(this.state.tags)
         const {data:tag} = await axios.delete(apiEndpoint+"tags/"+id)
         const {data:links} = await axios.get(apiEndpoint);
         this.setState({links})

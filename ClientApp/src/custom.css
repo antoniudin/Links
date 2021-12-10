@@ -82,10 +82,16 @@ code {
   background-color:#a0a0a0;
 }
 
-.linkContainerHeader {
+.linkContainerHeader, .addTagContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.tagContainer {
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
 }
 
 .linkContainerItem {
@@ -121,5 +127,4 @@ code {
   display:flex;
   flex-direction:row;
 }
-
 
