@@ -50,7 +50,6 @@ class LinkForm extends React.Component {
         const link = {...this.state.link}
         link[input.name] = input.value;
         this.setState({link});
-        console.log(this.state.link)
     }
 
     render() {         

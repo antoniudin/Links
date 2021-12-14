@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import LinkForm from './linkForm';
+import Input from './input';
 import Link from './link';
 import Login from './login';
 
@@ -13,6 +14,7 @@ class Links extends React.Component {
             name:'',
             shortName:''
           },
+        search: {line:''},
         showAddField:false,
         links:[]
     }
@@ -60,9 +62,16 @@ class Links extends React.Component {
         this.setState({links})
     }
 
+    handleChange = ({currentTarget:input}) => {
+        const search = {...this.state.search}
+        search[input.name] = input.value;
+        this.setState({search});
+    }
+
     render() {
-        const {showAddField, links} = this.state;
+        const {showAddField, links, search} = this.state;
         return <div className="main">
+            <button onClick={this.handleFilter}>fltr</button>
             <div className="rightPanel">
             {!showAddField && <button className="btn btn-sm btn-warning showButton" onClick={this.handleShowLinkForm}>+</button>}
             
@@ -72,21 +81,10 @@ class Links extends React.Component {
             closeForm = {this.handleHideLinkForm}
             /></div>}
             
-            <form onSubmit={this.handleSubmit}>
-                <div className="">
-                    <label htmlFor="input1">Search:</label>
-                    <input 
-                    // value={link.name}
-                    // onChange={this.handleChange}
-                    // id="input1" 
-                    // name="name"
-                    // error={errors.link}
-                    className="form-control"/>
-                </div>
-            </form>
+            <Input name = "line" type="text" label="Search" value={search.name} onChange = {this.handleChange} />
 
             <p className="m-2">Total number of links: {links.length}</p>
-            {links.map(link=>
+            {links.map(link=> 
                 <Link key={link.id}
                 tags = {link.tags}
                 link={link}

@@ -54,7 +54,7 @@ class Link extends React.Component {
             <div>Total visits: <span className="badge badge-primary">{link.visits}</span></div>
                 {this.state.showAddTagField &&
                 <div className="addTagContainer">
-                <Input style={{margin:0}} name = "name" type="text" value={tag.name} errors = {errors} placeholder="Add a new tag" onChange = {this.handleChange} />
+                <Input name = "name" type="text" value={tag.name} errors = {errors} placeholder="Add a new tag" onChange = {this.handleChange} />
                 <button onClick={()=>addTag(tag, link.id)} type="submit" className="btn btn-primary m-1">+</button>
                 <button className="btn btn-danger m-1" onClick={this.handleHideAddTagField}>x</button>
                 </div>
