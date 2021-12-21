@@ -25,13 +25,13 @@ class Links extends React.Component {
 
     handleAddTag = async (newTag, linkId) => {
         const promise = await axios.post(apiEndpoint + linkId + "/" + newTag.name)
-        const {data:links} = await axios.get(apiEndpoint);
+        const {data:links} = await axios.get(apiEndpoint)
         this.setState({links})
     }
     
     handleAddLink = async (newLink) => {
         const {data:link} = await axios.post(apiEndpoint, newLink)
-        const {data:links} = await axios.get(apiEndpoint);
+        const {data:links} = await axios.get(apiEndpoint)
         this.setState({links})
     }    
 
