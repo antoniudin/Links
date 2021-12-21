@@ -97,27 +97,18 @@ namespace Links.Controllers
 
             // Add a new tag to the link with {id}
              [HttpPost("/api/links/{id}/{newTag}")]
-            public IActionResult AddTag (int id, string newTag) {
-            var link = context.Links.FirstOrDefault(l=> l.Id==id);
-            var tagInDb = link.Tags.FirstOrDefault(t=> t.Name==newTag);
-            if (link==null) {
-                return NotFound();
-            }
-            
-            if (tagInDb==null) {
-                Tag tag = new Tag () {
+            public IActionResult AddTag (int id, string newTag) 
+            {
+                var tagInDb = context.Tags.FirstOrDefault(t => t.LinkId==id && t.Name==newTag);
+                if (tagInDb!=null) return BadRequest("A Tag with this name has already existed");
+                Tag tag = new Tag () 
+                {
                     Name=newTag,
                     LinkId=id
                 };
                 context.Add(tag);
                 context.SaveChanges();
-                return Ok();
+                return Ok("A tag was successfully added");
             }
-            else {
-                return BadRequest();
-            }
-        }
-
-
     }
 }
