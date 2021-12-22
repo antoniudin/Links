@@ -128,3 +128,33 @@ code {
   flex-direction:row;
 }
 
+.dateContainer, .dateContainerSmall {
+  margin-left: auto;
+  font-size: 0.5;
+  opacity: 0.6;
+}
+
+.linkNameContainer {
+  border-radius: 5px;
+  background-color: #b4b4b4;
+  margin:4px;
+  padding:2px;
+  padding-left: 4px;
+  
+}
+
+@media screen and (max-width: 610px) {
+  .dateContainer { 
+    display: none; 
+  } 
+}
+
+@media screen and (min-width: 611px) {
+  .dateContainerSmall { 
+    display: none; 
+  } 
+}
+
+.main {
+  min-width: 400px;
+}

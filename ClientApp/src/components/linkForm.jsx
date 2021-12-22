@@ -7,7 +7,7 @@ const apiEndpoint = "https://localhost:5001/api/links/";
 class LinkForm extends React.Component {
     
     state = {
-        link:{name: '', shorName:''},
+        link:{name: '', shorName:'', CreationDate:""},
         errors: {}
     }
 
@@ -33,6 +33,13 @@ class LinkForm extends React.Component {
 
     doSubmit = () => {
         const newLink = {...this.state.link}
+        var currentdate = new Date()
+        var datetime = "Link Created: " + currentdate.getDate() + "/"
+        + (currentdate.getMonth()+1)  + "/" 
+        + currentdate.getFullYear() + " @ "  
+        + currentdate.getHours() + ":"  
+        + currentdate.getMinutes() 
+        newLink.CreationDate = datetime
         newLink.shortName = (Math.random() + 1).toString(36).substring(7)
         this.props.addLink(newLink);
     }
@@ -56,7 +63,7 @@ class LinkForm extends React.Component {
         const {link,errors} =this.state;
         return <div>
             <form onSubmit={this.handleSubmit}>
-                <Input name = "name" value={link.name} label="Link" errors = {errors} onChange = {this.handleChange} />
+                <Input name = "name" value={link.name} label="Link" inputClass="form-control" errors = {errors} onChange = {this.handleChange} />
                 {errors.link && <div className="alert alert-danger">{errors.link}</div> }
                 <button type="submit" className="btn btn-primary btn-sm m-1">Submit</button>
                 <button className="btn btn-secondary btn-sm m-1" onClick={this.props.closeForm}>Cancel</button>

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "qx5rFhxd+EjuZE06akOqDlsRF7VWHYexpMuXzF/GH8x/dYpEM0EPr+jVvtWUFM/8vBFgQRCUOkzq3aO53qZcpQ==",
+  "dgSpecHash": "fzRgzn1Xyv3TEoOLL+JP9YwI1vxNylBju/u9DILsYdZxHcBqFat+oSAoH5GqV027/a0VHWO5vOWiVlw8n6k+ig==",
   "success": true,
   "projectFilePath": "/Users/main/Links/Links/Links.csproj",
   "expectedPackageFiles": [
+    "/Users/main/.nuget/packages/fontawesome/4.7.0/fontawesome.4.7.0.nupkg.sha512",
     "/Users/main/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/main/.nuget/packages/microsoft.aspnetcore.jsonpatch/5.0.0/microsoft.aspnetcore.jsonpatch.5.0.0.nupkg.sha512",
     "/Users/main/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/5.0.0/microsoft.aspnetcore.mvc.newtonsoftjson.5.0.0.nupkg.sha512",

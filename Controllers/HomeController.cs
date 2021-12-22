@@ -33,7 +33,8 @@ namespace Links.Controllers
         public IActionResult CreateLink(Link id) {
             Link link = new Link() {
                 Name = id.Name,
-                ShortName = id.ShortName
+                ShortName = id.ShortName,
+                CreationDate = id.CreationDate
             };
             
             context.Add(link);

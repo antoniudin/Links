@@ -49,16 +49,18 @@ class Link extends React.Component {
                 <button className="linkContainerItem btn btn-warning btn-sm">Go To</button>
                 <button onClick={()=>delLink(link.id)} className="linkContainerItem btn btn-danger btn-sm">Delete</button>
                 {!this.state.showAddTagField && <button className="btn btn-sm btn-primary" onClick={this.handleShowAddTagField}>Add tag</button>}
-            </div>
-            <div>Link: {link.name}</div>
-            <div>Total visits: <span className="badge badge-primary">{link.visits}</span></div>
                 {this.state.showAddTagField &&
                 <div className="addTagContainer">
                 <Input name = "name" type="text" value={tag.name} errors = {errors} placeholder="Add a new tag" onChange = {this.handleChange} />
-                <button onClick={()=>addTag(tag, link.id)} type="submit" className="btn btn-primary m-1">+</button>
-                <button className="btn btn-danger m-1" onClick={this.handleHideAddTagField}>x</button>
+                <button onClick={()=>addTag(tag, link.id)} type="submit" className="btn btn-sm btn-primary m-1">+</button>
+                <button className="btn btn-sm btn-danger m-1" onClick={this.handleHideAddTagField}>x</button>
                 </div>
                 }
+                <div className="dateContainer">{link.creationDate}</div>
+            </div>
+            <div className="dateContainerSmall">{link.creationDate}</div>
+            <div className="linkNameContainer">Link: {link.name}</div>
+            <div>Total visits: <span className="badge badge-primary">{link.visits}</span></div>
                 <Tags link={link} tags={tags} delTag={delTag}/>
         </div>
     }

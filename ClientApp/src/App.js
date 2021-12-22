@@ -47,6 +47,7 @@ export default class App extends Component {
             
           </Switch>
        </div>
+       <i class="fas fa-times"></i>
       </React.Fragment>
     );
   }
