@@ -13,6 +13,8 @@ namespace Links.Models
         public string ShortName { get; set; }
         public int Visits { get; set; }
 
+        public string CreationDate { get; set; }
+
         public Link()
         {
             Tags = new Collection<Tag>();
