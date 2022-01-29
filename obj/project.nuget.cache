@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fzRgzn1Xyv3TEoOLL+JP9YwI1vxNylBju/u9DILsYdZxHcBqFat+oSAoH5GqV027/a0VHWO5vOWiVlw8n6k+ig==",
+  "dgSpecHash": "g9vItBcWLLTTITMsfCyn8gtiPHgsBm3Wutows29NTS1T56mKSeZIaOE2b1kA7OZZdrKU8wXQh2KU0te4BEWu3w==",
   "success": true,
-  "projectFilePath": "/Users/main/Links/Links/Links.csproj",
+  "projectFilePath": "/Users/main/Links/Links.csproj",
   "expectedPackageFiles": [
     "/Users/main/.nuget/packages/fontawesome/4.7.0/fontawesome.4.7.0.nupkg.sha512",
     "/Users/main/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",

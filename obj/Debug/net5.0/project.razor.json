@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/main/Links/Links/Links.csproj",
+  "FilePath": "/Users/main/Links/Links.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,12 +15619,12 @@
   "RootNamespace": "Links",
   "Documents": [
     {
-      "FilePath": "/Users/main/Links/Links/Pages/Error.cshtml",
+      "FilePath": "/Users/main/Links/Pages/Error.cshtml",
       "TargetPath": "Pages\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/main/Links/Links/Pages/_ViewImports.cshtml",
+      "FilePath": "/Users/main/Links/Pages/_ViewImports.cshtml",
       "TargetPath": "Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"
     }
